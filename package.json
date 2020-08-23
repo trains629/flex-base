@@ -1,0 +1,16 @@
+{
+  "name": "@trains629/flex-base",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "repository": "https://github.com/trains629/flex-base.git",
+  "author": "trains629",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "scripts": {
+    "build": "esbuild ./src/index.js --bundle '--define:process.env.NODE_ENV=\"production\"' --target=es6 --loader:.js=jsx --outfile=./lib/index.js --format=esm --external:classnames --external:react --external:react-dom --minify"
+  }
+}
