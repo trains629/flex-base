@@ -3,18 +3,16 @@ import classNames from "classnames";
 
 function Header(props){
   let {children,onClose} = props;
-  return (<div className="modal-header">
-    <h5 className="modal-title">{children}</h5>
-    <button type="button" className="close" onClick={onClose}>
-      <span>&times;</span>
-    </button>
-  </div>);
+  return <header className="modal-card-head">
+    <p className="modal-card-title">{children}</p>
+    <button className="delete" onClick={onClose}></button>
+  </header>;
 }
 
 function Footer({children}){
-  return <div className="modal-footer">
+  return <footer className="modal-card-foot">
     {children}
-  </div>;
+  </footer>;
 }
 
 function Modal(props){
@@ -31,17 +29,15 @@ function Modal(props){
     styleContent["zIndex"] = 1200;
   }
   
-  return <div className={classNames("modal","fade",show ? "show":"")} style={style} >
-    <div className={classNames("modal-dialog",className)} style={styleContent}>
-      <div className="modal-content">
-        <Header onClose={_onClose}>{title}</Header>
-        <div className="modal-body">
-          {children}
-        </div>
-        {footer ? footer : null}
-      </div>
+  return <div className={classNames("modal",{"is-active":show})} style={style} >
+    {show?<div className="modal-background" onClick={_onClose}/>:null}
+    <div className={classNames("modal-card",className)} style={styleContent}>
+      <Header onClose={_onClose}>{title}</Header>
+      <section className="modal-card-body">
+        {children}
+      </section>
+      {footer ? footer : null}
     </div>
-    {show ?<div key="show" className={`modal-backdrop fade show`} onClick={_onClose}/>:null}
   </div>;
 }
 

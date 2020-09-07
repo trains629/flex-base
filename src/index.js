@@ -1,10 +1,10 @@
-import Modal1 from "./components/Modal";
-import Dropdown1 from "./components/Dropdown";
-import Sortable1 from "./components/Sortable";
-import Caption1 from "./components/Caption";
-import TabCard1 from "./components/TabCard";
-export const TabCard = TabCard1;
-export const Caption = Caption1;
-export const Sortable = Sortable1;
-export const Modal = Modal1;
-export const Dropdown = Dropdown1;
+import Modal from "./components/Modal";
+import Dropdown from "./components/Dropdown";
+import Sortable from "./components/Sortable";
+import Caption from "./components/Caption";
+import TabCard from "./components/TabCard";
+import Card from "./components/card";
+
+export {
+  TabCard,Caption,Sortable,Modal,Dropdown,Card
+}
